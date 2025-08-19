@@ -1,0 +1,46 @@
+@font-face {
+  font-display: swap;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/manrope-v19-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/manrope-v19-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/manrope-v19-latin-700.woff2') format('woff2');
+}
+
+:root {
+  --gray-200: hsl(210deg 46% 95%);
+  --gray-400: hsl(212deg 23% 69%);
+  --gray-500: hsl(214deg 17% 51%);
+  --gray-900: hsl(217deg 19% 35%);
+  --white: hsl(0deg 0% 100%);
+  --main-font: 'Manrope', arial, sans-serif;
+  --font-size-base: 13px;
+  --line-height-base: 1.4;
+  --font-weight-400: 400;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-700: 56px;
+  --spacing-800: 64px;
+  --spacing-1300: 104px;
+  --spacing-2000: 160px;
+}

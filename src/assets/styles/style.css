@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-size: var(--font-size-base);
+  background-color: var(--gray-200);
+  font-family: var(--main-font);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-base);
+  max-width: 1440px;
+  min-height: 100vh;
+  min-width: 320px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
