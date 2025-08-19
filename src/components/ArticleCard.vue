@@ -28,10 +28,10 @@ import avatar from '../assets/images/avatar-michelle.jpg';
 <style scoped>
 .article {
   display: block;
-  max-width: 400px;
   background-color: var(--white);
   border-radius: 10px;
   margin-inline: var(--spacing-300);
+  max-width: 400px;
   overflow: hidden;
 }
 
@@ -41,8 +41,10 @@ import avatar from '../assets/images/avatar-michelle.jpg';
 }
 
 .article__image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
 }
 
 .article__content {
@@ -51,8 +53,8 @@ import avatar from '../assets/images/avatar-michelle.jpg';
 
 .article__title {
   font-size: 20px;
-  letter-spacing: 0.25px;
   color: var(--gray-900);
+  letter-spacing: 0.25px;
   line-height: 1.3;
 }
 
@@ -64,29 +66,39 @@ import avatar from '../assets/images/avatar-michelle.jpg';
 
 .article__footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-top: var(--spacing-600);
 }
 
-@media(min-width: 768px) {
+@media(width >= 768px) {
   .article {
-    max-width: 730px;
     display: flex;
     margin-inline: 80px;
+    max-width: 730px;
+  }
+
+  .article__image-wrapper {
+    max-width: 285px;
+    min-width: 230px;
+    height: auto;
+  }
+
+  .article__image {
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
   }
 
   .article__content {
-    padding-left: clamp(2rem, -0.4918rem + 6.5574vw, 2.5rem);
-    padding-right: clamp(2.25rem, 1.0041rem + 3.2787vw, 2.5rem);
-    padding-top: clamp(1.875rem, 5.6148rem + -8.1967vw, 2.5rem);
-    padding-bottom: clamp(1.875rem, 5.6148rem + -8.1967vw, 2.5rem);
+    padding: 30px 40px;
+    max-width: 445px;
   }
 
   .article__footer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     margin-top: var(--spacing-300);
   }
 }

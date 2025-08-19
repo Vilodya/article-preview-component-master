@@ -26,8 +26,8 @@ function toggleShare() {
 .share-button {
   width: 32px;
   height: 32px;
-  cursor: pointer;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .share-button__circle {
