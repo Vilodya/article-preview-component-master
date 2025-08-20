@@ -1,14 +1,25 @@
 <script setup>
+import { ref } from 'vue';
+
 import ProfileAndDate from './ProfileAndDate.vue';
 import ShareButton from './ShareButton.vue';
+import ShareToast from './ShareToast.vue';
+
 import avatar from '../assets/images/avatar-michelle.jpg';
+import drawers from '../assets/images/drawers.jpg';
+
+const isActive = ref(false)
+
+function toggleShare() {
+  isActive.value = !isActive.value
+}
 
 </script>
 
 <template>
   <article class="article">
    <div class="article__image-wrapper">
-    <img src="../assets/images/drawers.jpg" alt="Drawers" class="article__image">
+    <img :src="drawers" alt="Drawers" class="article__image">
    </div>
    <div class="article__content">
     <h2 class="article__title">Shift the overall look and feel by adding these wonderful touches to furniture in your home</h2>
@@ -19,7 +30,8 @@ import avatar from '../assets/images/avatar-michelle.jpg';
       name="Michelle Appleton"
       date="28 Jun 2020"
       />
-      <ShareButton />
+      <ShareButton :isActive="isActive" @toggle="toggleShare" />
+      <ShareToast :isActive="isActive" />
     </div>
    </div>
   </article>
@@ -30,13 +42,14 @@ import avatar from '../assets/images/avatar-michelle.jpg';
   display: block;
   background-color: var(--white);
   border-radius: 10px;
+  box-shadow: 0 40px 40px -10px rgb(201 213 225 / 50%);
   margin-inline: var(--spacing-300);
   max-width: 400px;
-  overflow: hidden;
 }
 
 .article__image-wrapper {
   height: 200px;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
 }
 
@@ -48,6 +61,7 @@ import avatar from '../assets/images/avatar-michelle.jpg';
 }
 
 .article__content {
+  position: relative;
   padding: 32px 30px 18px;
 }
 
@@ -71,7 +85,7 @@ import avatar from '../assets/images/avatar-michelle.jpg';
   margin-top: var(--spacing-600);
 }
 
-@media(width >= 768px) {
+@media (width >= 768px) {
   .article {
     display: flex;
     margin-inline: 80px;
@@ -79,9 +93,10 @@ import avatar from '../assets/images/avatar-michelle.jpg';
   }
 
   .article__image-wrapper {
+    height: auto;
+    border-radius: 10px 0 0 10px;
     max-width: 285px;
     min-width: 230px;
-    height: auto;
   }
 
   .article__image {

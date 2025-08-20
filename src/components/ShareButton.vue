@@ -1,19 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+const props = defineProps({
+  isActive: Boolean
+})
 
-const isActive = ref(false)
+const emit = defineEmits(['toggle'])
 
-function toggleShare() {
-  isActive.value = !isActive.value
-  console.log('Share clicked! Active:', isActive.value)
+function handleClick() {
+  emit('toggle')
 }
 </script>
 
 <template>
   <button 
-      class="share-button" 
-      :class="{ 'share-button--active': isActive }"
-      @click="toggleShare"
+      class="share-button"
+      :class="{ 'share-button--active': props.isActive }"
+      @click="handleClick"
+      aria-label="Share"
     >
     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path class="share-button__icon" fill="currentColor" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg>
   </button>
@@ -22,6 +24,7 @@ function toggleShare() {
 <style scoped>
   .share-button {
     display: flex;
+    position: relative;
     width: 32px;
     height: 32px;
     align-items: center;
@@ -29,6 +32,7 @@ function toggleShare() {
     border-radius: 50%;
     cursor: pointer;
     justify-content: center;
+    z-index: 2;
   }
 
   .share-button__icon {
