@@ -1,26 +1,31 @@
 <script setup>
+import triangle from '../assets/images/triangle.png';
+import facebook from '../assets/images/icon-facebook.svg';
+import twitter from '../assets/images/icon-twitter.svg';
+import pinterest from '../assets/images/icon-pinterest.svg';
+
 defineProps({
   isActive: Boolean
 })
 </script>
 
 <template>
-  <div class="share-toast" :class="{ 'share-toast--active': isActive }">
+  <div class="share-toast" :class="{ 'share-toast--active': isActive }" :style="{ '--triangle-url': `url(${triangle})` }">
     <p class="share-toast__text">SHARE</p>
     <ul class="social-links">
       <li class="social-links__item">
         <a href="#" class="social-links__link" aria-label="Share on Facebook">
-          <img src="../assets/images/icon-facebook.svg" alt="Facebook">
+          <img :src="facebook" alt="Facebook">
         </a>
       </li>
       <li class="social-links__item">
         <a href="#" class="social-links__link" aria-label="Share on Twitter">
-          <img src="../assets/images/icon-twitter.svg" alt="Twitter">
+          <img :src="twitter" alt="Twitter">
         </a>
       </li>
       <li class="social-links__item">
         <a href="#" class="social-links__link" aria-label="Share on Pinterest">
-          <img src="../assets/images/icon-pinterest.svg" alt="Pinterest">
+          <img :src="pinterest" alt="Pinterest">
         </a>
       </li>
     </ul>
@@ -78,7 +83,7 @@ defineProps({
     left: 112px;
     width: 24px;
     height: 12px;
-    background-image: url("../assets/images/triangle.png");
+    background-image: var(--triangle-url);
     content: '';
   }
 }
